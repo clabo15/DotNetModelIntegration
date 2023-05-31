@@ -5,42 +5,56 @@ namespace API.Model;
 
 public class CommonDataModel
 {
-    [DllImport("C:\\Users\\clabo\\source\\repos\\DotNetModelIntegration\\x64\\Debug\\CommonDataModel.dll", CallingConvention = CallingConvention.Cdecl)]
-    private static extern double calculateAvgEmploymentRate(Person[] people, int count, bool is_college_educated);
 
-    [DllImport("C:\\Users\\clabo\\source\\repos\\DotNetModelIntegration\\x64\\Debug\\CommonDataModel.dll", CallingConvention = CallingConvention.Cdecl)]
-    private static extern double calculateAvgYearlySalary(Person[] people, int count, bool is_college_educated);
+    private const string CommonDataModelDllName = "C:\\Users\\clabo\\source\\repos\\GitHub-Repos\\DotNetModelIntegration\\x64\\Debug\\CommonDataModel.dll";
 
-    [DllImport("C:\\Users\\clabo\\source\\repos\\DotNetModelIntegration\\x64\\Debug\\CommonDataModel.dll", CallingConvention = CallingConvention.Cdecl)]
-    private static extern double calculateEmploymentRateBasedOnBirthYear(Person[] people, int count, int birth_year, bool is_college_educated);
+    [DllImport(CommonDataModelDllName, CallingConvention = CallingConvention.Cdecl)]
+    private static extern double avgEmploymentRateCollege(Person[] people, int count);
+
+    [DllImport(CommonDataModelDllName, CallingConvention = CallingConvention.Cdecl)]
+    private static extern double avgEmploymentRateNonCollege(Person[] people, int count);
+
+    [DllImport(CommonDataModelDllName, CallingConvention = CallingConvention.Cdecl)]
+    private static extern double avgYearlySalaryCollege(Person[] people, int count);
+
+    [DllImport(CommonDataModelDllName, CallingConvention = CallingConvention.Cdecl)]
+    private static extern double avgYearlySalaryNonCollege(Person[] people, int count);
+
+    [DllImport(CommonDataModelDllName, CallingConvention = CallingConvention.Cdecl)]
+    private static extern double employmentRateBasedOnBirthYearCollege(Person[] people, int count, int birth_year);
+
+    [DllImport(CommonDataModelDllName, CallingConvention = CallingConvention.Cdecl)]
+    private static extern double employmentRateBasedOnBirthYearNonCollege(Person[] people, int count, int birth_year);
 
     public double CalculateAvgEmploymentRateCollege(List<Person> people)
     {
-        return calculateAvgEmploymentRate(people.ToArray(), people.Count, true);
+        return avgEmploymentRateCollege(people.ToArray(), people.Count);
     }
 
     public double CalculateAvgEmploymentRateNonCollege(List<Person> people)
     {
-        return calculateAvgEmploymentRate(people.ToArray(), people.Count, false);
+        return avgEmploymentRateNonCollege(people.ToArray(), people.Count);
     }
 
     public double CalculateAvgYearlySalaryCollege(List<Person> people)
     {
-        return calculateAvgYearlySalary(people.ToArray(), people.Count, true);
+        return avgYearlySalaryCollege(people.ToArray(), people.Count);
     }
 
     public double CalculateAvgYearlySalaryNonCollege(List<Person> people)
     {
-        return calculateAvgYearlySalary(people.ToArray(), people.Count, false);
+        return avgYearlySalaryNonCollege(people.ToArray(), people.Count);
     }
 
     public double CalculateEmploymentRateBasedOnBirthYearCollege(List<Person> people, int birthYear)
     {
-        return calculateEmploymentRateBasedOnBirthYear(people.ToArray(), people.Count, birthYear, true);
+        return employmentRateBasedOnBirthYearCollege(people.ToArray(), people.Count, birthYear);
     }
 
     public double CalculateEmploymentRateBasedOnBirthYearNonCollege(List<Person> people, int birthYear)
     {
-        return calculateEmploymentRateBasedOnBirthYear(people.ToArray(), people.Count, birthYear, false);
+        return employmentRateBasedOnBirthYearNonCollege(people.ToArray(), people.Count, birthYear);
     }
+
+
 }

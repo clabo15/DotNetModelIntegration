@@ -21,6 +21,8 @@ namespace API.Controllers
         {
             double result = 0.0;
 
+            CommonDataModel commonDataModel = new CommonDataModel();
+
             switch (simulationName)
             {
                 case "avgEmploymentRateCollege":
