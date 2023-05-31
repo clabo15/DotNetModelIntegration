@@ -113,7 +113,8 @@
       <AdditionalDependencies>Models.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)..\DotNetModelIntegration\x64\Debug\Simulator.lib" "$(SolutionDir)..\DotNetModelIntegration\API\bin\Debug\net6.0" /Y</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -135,7 +136,8 @@
       <AdditionalDependencies>Models.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)..\DotNetModelIntegration\x64\Debug\Simulator.lib" "$(SolutionDir)..\DotNetModelIntegration\API\bin\Debug\net6.0" /Y</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
