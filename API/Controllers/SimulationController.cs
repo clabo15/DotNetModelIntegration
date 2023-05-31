@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using API.Model;
 
-namespace YourNamespace
+namespace API.Controllers
 {
     [ApiController]
     [Route("api/simulation")]
