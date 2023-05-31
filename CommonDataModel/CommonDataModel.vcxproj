@@ -113,8 +113,8 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\DotNetModelIntegration\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy "$(SolutionDir)..\DotNetModelIntegration\x64\Debug\CommonDataModel.dll" "$(SolutionDir)..\DotNetModelIntegration\API\bin\Debug\net6.0\" /Y
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -136,8 +136,8 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\DotNetModelIntegration\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy "$(SolutionDir)..\DotNetModelIntegration\x64\Debug\CommonDataModel.dll" "$(SolutionDir)..\DotNetModelIntegration\API\bin\Debug\net6.0\" /Y
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

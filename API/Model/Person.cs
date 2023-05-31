@@ -1,4 +1,6 @@
-﻿namespace API.Model;
+﻿using System.Runtime.InteropServices;
+
+namespace API.Model;
 
 public class Person
 {
@@ -8,5 +10,4 @@ public class Person
     public bool IsEmployed { get; set; }
     public int YearlySalary { get; set; }
 }
-
 

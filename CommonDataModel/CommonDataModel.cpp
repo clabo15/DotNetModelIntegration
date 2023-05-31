@@ -1,50 +1,42 @@
 #include "CommonDataModel.h"
 #include "../Simulator/Simulator.h"
+#include <vector>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-    // Calculate the average employment rate for college-educated people in the given vector
-    double CommonDataModel::avgEmploymentRateCollege(const std::vector<Person>& people)
-    {
-        Simulator simulator; // Create an instance of the Simulator class
-        return simulator.calculateAvgEmploymentRateCollege(people); // Call the Simulator's method to calculate the average employment rate for college-educated people
+    __declspec(dllexport) double calculateAvgEmploymentRate(const Person* people, int count, bool is_college_educated) {
+        std::vector<Person> peopleVector(people, people + count);
+        Simulator simulator;
+        if (is_college_educated) {
+            return simulator.calculateAvgEmploymentRateCollege(peopleVector);
+        }
+        else {
+            return simulator.calculateAvgEmploymentRateNonCollege(peopleVector);
+        }
     }
 
-    // Calculate the average employment rate for non-college-educated people in the given vector
-    double CommonDataModel::avgEmploymentRateNonCollege(const std::vector<Person>& people)
-    {
-        Simulator simulator; // Create an instance of the Simulator class
-        return simulator.calculateAvgEmploymentRateNonCollege(people); // Call the Simulator's method to calculate the average employment rate for non-college-educated people
+    __declspec(dllexport) double calculateAvgYearlySalary(const Person* people, int count, bool is_college_educated) {
+        std::vector<Person> peopleVector(people, people + count);
+        Simulator simulator;
+        if (is_college_educated) {
+            return simulator.calculateAvgYearlySalaryCollege(peopleVector);
+        }
+        else {
+            return simulator.calculateAvgYearlySalaryNonCollege(peopleVector);
+        }
     }
 
-    // Calculate the average yearly salary for college-educated people in the given vector
-    double CommonDataModel::avgYearlySalaryCollege(const std::vector<Person>& people)
-    {
-        Simulator simulator; // Create an instance of the Simulator class
-        return simulator.calculateAvgYearlySalaryCollege(people); // Call the Simulator's method to calculate the average yearly salary for college-educated people
-    }
-
-    // Calculate the average yearly salary for non-college-educated people in the given vector
-    double CommonDataModel::avgYearlySalaryNonCollege(const std::vector<Person>& people)
-    {
-        Simulator simulator; // Create an instance of the Simulator class
-        return simulator.calculateAvgYearlySalaryNonCollege(people); // Call the Simulator's method to calculate the average yearly salary for non-college-educated people
-    }
-
-    // Calculate the employment rate based on birth year for college-educated people in the given vector
-    double CommonDataModel::employmentRateBasedOnBirthYearCollege(const std::vector<Person>& people, int birthYear)
-    {
-        Simulator simulator; // Create an instance of the Simulator class
-        return simulator.calculateEmploymentRateBasedOnBirthYearCollege(people, birthYear); // Call the Simulator's method to calculate the employment rate based on birth year for college-educated people
-    }
-
-    // Calculate the employment rate based on birth year for non-college-educated people in the given vector
-    double CommonDataModel::employmentRateBasedOnBirthYearNonCollege(const std::vector<Person>& people, int birthYear)
-    {
-        Simulator simulator; // Create an instance of the Simulator class
-        return simulator.calculateEmploymentRateBasedOnBirthYearNonCollege(people, birthYear); // Call the Simulator's method to calculate the employment rate based on birth year for non-college-educated people
+    __declspec(dllexport) double calculateEmploymentRateBasedOnBirthYear(const Person* people, int count, int birth_year, bool is_college_educated) {
+        std::vector<Person> peopleVector(people, people + count);
+        Simulator simulator;
+        if (is_college_educated) {
+            return simulator.calculateEmploymentRateBasedOnBirthYearCollege(peopleVector, birth_year);
+        }
+        else {
+            return simulator.calculateEmploymentRateBasedOnBirthYearNonCollege(peopleVector, birth_year);
+        }
     }
 
 #ifdef __cplusplus

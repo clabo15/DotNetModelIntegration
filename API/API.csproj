@@ -10,4 +10,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(SolutionDir)..\DotNetModelIntegration\x64\Debug\CommonDataModel.dll&quot; &quot;$(SolutionDir)..\DotNetModelIntegration\API\bin\Debug\net6.0&quot; /Y&#xD;&#xA;xcopy &quot;$(SolutionDir)..\DotNetModelIntegration\x64\Debug\Simulator.lib&quot; &quot;$(SolutionDir)..\DotNetModelIntegration\API\bin\Debug\net6.0&quot; /Y&#xD;&#xA;xcopy &quot;$(SolutionDir)..\DotNetModelIntegration\x64\Debug\Models.dll&quot; &quot;$(SolutionDir)..\DotNetModelIntegration\API\bin\Debug\net6.0&quot; /Y" />
+  </Target>
+
 </Project>
