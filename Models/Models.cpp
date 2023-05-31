@@ -10,7 +10,7 @@ double Models::calculateAvgEmploymentRate(const std::vector<Person>& people, boo
     for (const Person& person : people)
     {
         // Check if the person is college-educated and employed
-        if (person.is_college_educated == is_college_educated && person.is_employed)
+        if (person.is_college_educated && person.is_employed)
         {
             count++; // Increment the counter if the conditions are met
         }
@@ -29,7 +29,7 @@ double Models::calculateAvgYearlySalary(const std::vector<Person>& people, bool 
     for (const Person& person : people)
     {
         // Check if the person is college-educated
-        if (person.is_college_educated == is_college_educated)
+        if (person.is_college_educated)
         {
             sum += person.yearly_salary; // Add the person's yearly salary to the sum
             count++; // Increment the counter
@@ -47,8 +47,9 @@ double Models::calculateEmploymentRateBasedOnBirthYear(const std::vector<Person>
     // Iterate over each Person in the vector
     for (const Person& person : people)
     {
+        auto test = person.person_birth_year;
         // Check if the person is college-educated, born in the specified year, and employed
-        if (person.is_college_educated == is_college_educated && person.person_birth_year == birth_year && person.is_employed)
+        if (person.is_college_educated && person.person_birth_year == birth_year && person.is_employed)
         {
             count++; // Increment the counter
         }
