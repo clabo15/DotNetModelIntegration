@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using API.Model;
+using System.Text.Json;
 
 namespace YourNamespace
 {
@@ -13,13 +14,14 @@ namespace YourNamespace
         {
             double result = 0.0;
 
+            string jsonString = JsonSerializer.Serialize(people);
             switch (simulationName)
             {
                 case "avgEmploymentRateCollege":
-                    result = CommonDataModel.CalculateAvgEmploymentRateCollege(people);
+                    result = CommonDataModel.CalculateAvgEmploymentRateCollege(jsonString);
                     break;
                 case "avgEmploymentRateNonCollege":
-                    result = CommonDataModel.CalculateAvgEmploymentRateNonCollege(people);
+                    result = CommonDataModel.CalculateAvgEmploymentRateNonCollege(jsonString);
                     break;
                 case "avgYearlySalaryCollege":
                     result = CommonDataModel.CalculateAvgYearlySalaryCollege(people);

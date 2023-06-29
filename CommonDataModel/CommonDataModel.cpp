@@ -7,17 +7,17 @@ extern "C" {
 #endif
 
     // Export the calculateAvgEmploymentRate function with the specified parameters and return type
-    __declspec(dllexport) double calculateAvgEmploymentRate(const Person* people, int count, bool is_college_educated) {
+    __declspec(dllexport) double calculateAvgEmploymentRate(const char* jsonStr, bool is_college_educated) {
         // Convert the array of Person objects to a vector
-        std::vector<Person> peopleVector(people, people + count);
+
         Simulator simulator; // Create an instance of the Simulator class
         if (is_college_educated) {
             // Call the Simulator's method to calculate the average employment rate for college-educated people
-            return simulator.calculateAvgEmploymentRateCollege(peopleVector);
+            return simulator.calculateAvgEmploymentRateCollege(jsonStr);
         }
         else {
             // Call the Simulator's method to calculate the average employment rate for non-college-educated people
-            return simulator.calculateAvgEmploymentRateNonCollege(peopleVector);
+            return simulator.calculateAvgEmploymentRateNonCollege(jsonStr);
         }
     }
 

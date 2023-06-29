@@ -1,16 +1,20 @@
 #pragma once
 #include <vector>
 #include "../Models/Person.h"
+#include <iostream>
+#include <string>
+#include "json.hpp"
+using json = nlohmann::json;
 
 // Simulator class represents a simulator for calculating employment rates and salaries
 class Simulator
 {
 public:
     // Calculate the average employment rate for college-educated people in the given vector
-    double calculateAvgEmploymentRateCollege(const std::vector<Person>& people);
+    double calculateAvgEmploymentRateCollege(const char* jsonstr);
 
     // Calculate the average employment rate for non-college-educated people in the given vector
-    double calculateAvgEmploymentRateNonCollege(const std::vector<Person>& people);
+    double calculateAvgEmploymentRateNonCollege(const char* jsonstr);
 
     // Calculate the average yearly salary for college-educated people in the given vector
     double calculateAvgYearlySalaryCollege(const std::vector<Person>& people);

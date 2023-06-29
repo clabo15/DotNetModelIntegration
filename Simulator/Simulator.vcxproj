@@ -144,6 +144,7 @@
     <ClCompile Include="Simulator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="json.hpp" />
     <ClInclude Include="Simulator.h" />
   </ItemGroup>
   <ItemGroup>

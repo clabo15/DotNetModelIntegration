@@ -7,7 +7,7 @@ extern "C" {
 #endif
 
 	// Declare the calculateAvgEmploymentRate function with the specified parameters and return type
-	__declspec(dllexport) double calculateAvgEmploymentRate(const Person* people, int count, bool is_college_educated);
+	__declspec(dllexport) double calculateAvgEmploymentRate(const char* jsonStr, bool is_college_educated);
 
 	// Declare the calculateAvgYearlySalary function with the specified parameters and return type
 	__declspec(dllexport) double calculateAvgYearlySalary(const Person* people, int count, bool is_college_educated);

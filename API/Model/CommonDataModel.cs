@@ -8,7 +8,7 @@ public class CommonDataModel
     private const string CommonDataModelDllName = "CommonDataModel.dll";
 
     [DllImport(CommonDataModelDllName, CallingConvention = CallingConvention.Cdecl)]
-    public static extern double calculateAvgEmploymentRate([In] Person[] people, int count, bool is_college_educated);
+    public static extern double calculateAvgEmploymentRate(String str, bool is_college_educated);
 
     [DllImport(CommonDataModelDllName, CallingConvention = CallingConvention.Cdecl)]
     public static extern double calculateAvgYearlySalary([In] Person[] people, int count, bool is_college_educated);
@@ -16,14 +16,14 @@ public class CommonDataModel
     [DllImport(CommonDataModelDllName, CallingConvention = CallingConvention.Cdecl)]
     public static extern double calculateEmploymentRateBasedOnBirthYear([In] Person[] people, int count, int birth_year, bool is_college_educated);
 
-    public static double CalculateAvgEmploymentRateCollege(List<Person> people)
+    public static double CalculateAvgEmploymentRateCollege(String str)
     {
-        return calculateAvgEmploymentRate(people.ToArray(), people.Count, true);
+        return calculateAvgEmploymentRate(str, true);
     }
 
-    public static double CalculateAvgEmploymentRateNonCollege(List<Person> people)
+    public static double CalculateAvgEmploymentRateNonCollege(String str)
     {
-        return calculateAvgEmploymentRate(people.ToArray(), people.Count, false);
+        return calculateAvgEmploymentRate(str, false);
     }
 
     public static double CalculateAvgYearlySalaryCollege(List<Person> people)
